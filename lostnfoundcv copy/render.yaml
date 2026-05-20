@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: lostnfound
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: lostnfound-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: UPLOAD_DIR
+        value: /data/uploads
+      - key: DATABASE_PATH
+        value: /data/lostnfound.db
+      - key: MODEL_CONFIDENCE
+        value: "0.2"
+      - key: ANTHROPIC_API_KEY
+        sync: false

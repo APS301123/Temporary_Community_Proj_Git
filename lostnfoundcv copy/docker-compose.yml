@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - lostnfound_data:/data
+    env_file:
+      - .env
+    environment:
+      - UPLOAD_DIR=/data/uploads
+      - DATABASE_PATH=/data/lostnfound.db
+
+volumes:
+  lostnfound_data:
